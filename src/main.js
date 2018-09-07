@@ -1,7 +1,13 @@
+import Vue from 'vue'
+import App from './App'
 import store from '@/store.js'
 
-console.log(store.state.count) // -> 0
-// incrementをコミットする
+var vue = new Vue({
+  el: '#app',
+  store,
+  render: h => h(App)
+})
+
+console.log(store.state.count)
 store.commit('increment')
-// もう一度アクセスしてみるとカウントが増えている
-console.log(store.state.count) // -> 1
+console.log(store.state.count)
