@@ -4,7 +4,32 @@ import Vuex from 'vuex'
 // プラグインとして登録
 Vue.use(Vuex)
 
+const moduleA = {
+  state: {
+    count: 1
+  },
+  mutations: {
+    update(state) {
+      state.count += 100
+    }
+  }
+}
+const moduleB = {
+  state: {
+    count: 2
+  },
+  mutations: {
+    update(state) {
+      state.count += 200
+    }
+  }
+}
+
 const store = new Vuex.Store({
+  modules: {
+    moduleA,
+    moduleB
+  },
   state: {
     message: '初期メッセージ'
   },
