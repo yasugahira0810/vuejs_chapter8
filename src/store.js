@@ -18,6 +18,9 @@ const store = new Vuex.Store({
     // カウントアップするミューテーションを登録
     increment(state) {
       state.count++
+    },
+    mutationType(state, payload) {
+      state.count = payload
     }
   },
   getters: {
