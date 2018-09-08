@@ -8,13 +8,13 @@ var vue = new Vue({
   render: h => h(App)
 })
 
-console.log(store.state.moduleA.count) // -> 1
-console.log(store.state.moduleB.count) // -> 2
+//console.log(store.state.moduleA.count) // -> 1
+//console.log(store.state.moduleB.count) // -> 2
 //store.commit('update')
-store.commit('moduleA/update') // -> moduleA の update をコミット
-store.commit('moduleB/update') // -> moduleB の update をコミット
-console.log(store.state.moduleA.count) // -> 101
-console.log(store.state.moduleB.count) // -> 202
+//store.commit('moduleA/update') // -> moduleA の update をコミット
+//store.commit('moduleB/update') // -> moduleB の update をコミット
+//console.log(store.state.moduleA.count) // -> 101
+//console.log(store.state.moduleB.count) // -> 202
 
 //store.dispatch('actionType', 100)
 //console.log(store.state.count)
