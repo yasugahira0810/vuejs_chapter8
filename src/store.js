@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const moduleA = {
+  namespaced: true,
   state: {
     count: 1
   },
@@ -15,6 +16,7 @@ const moduleA = {
   }
 }
 const moduleB = {
+  namespaced: true,
   state: {
     count: 2
   },
