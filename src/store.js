@@ -44,6 +44,12 @@ const store = new Vuex.Store({
     name(state, getters) {
       return id => getters.item(id).name
     }
+  },
+  actions: {
+    actionType({ commit }, payload) {
+      // アクション内からコミットする
+      commit('mutationType')
+    }
   }
 })
 export default store

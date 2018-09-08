@@ -8,6 +8,8 @@ var vue = new Vue({
   render: h => h(App)
 })
 
+store.dispatch('actionType', 100)
+console.log(store.state.count)
 store.commit('mutationType', 10)
 console.log(store.state.count)
 store.commit('increment')
