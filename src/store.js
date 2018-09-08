@@ -54,6 +54,16 @@ const store = new Vuex.Store({
   }
 })
 
+// 状態の監視
+const unwatch = store.watch(
+  (state, getters) => {
+    return state.count // 監視したいデータを返す
+  },
+  (newVal, oldVal) => {
+    // 処理
+  }
+)
+
 // 何が呼び出されるか、コンソールログを確認してみよう
 store.dispatch('moduleA/test')
 console.log(store.getters['moduleA/test'])
@@ -61,5 +71,16 @@ console.log(store.getters['moduleA/test'])
 // 別のデータを読み込んだりする
 store.dispatch('moduleC/load', '/static/a.json')
 store.dispatch('moduleD/load', '/static/b.json')
+
+// コミットにフック
+store.subscribe((mutation, state) => {
+  console.log(mutation.type)
+  console.log(mutation.payload)
+})
+// ディスパッチにフック
+store.subscribeAction((action, state) => {
+  console.log(action.type)
+  console.log(action.payload)
+})
 
 export default store
