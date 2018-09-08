@@ -37,6 +37,7 @@ const moduleB = {
 }
 
 const store = new Vuex.Store({
+  strict: process.env.NODE_ENV !== 'production',
   modules: {
     moduleA,
     moduleB,
@@ -82,5 +83,19 @@ store.subscribeAction((action, state) => {
   console.log(action.type)
   console.log(action.payload)
 })
+
+// ホットリロード
+if (module.hot) {
+  module.hot.accept(['@/store/a.js'], () => {
+    // 更新されたモジュールを読み込む
+    const myModule = require('@/store/a.js').default
+    // 新しい定義をセット
+    store.hotUpdate({
+      modules: {
+        myModule: myModule
+      }
+    })
+  })
+}
 
 export default store
