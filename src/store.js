@@ -14,6 +14,12 @@ const store = new Vuex.Store({
       { id: 3, name: 'いちご', price: 300 }
     ]
   },
+  mutations: {
+    // カウントアップするミューテーションを登録
+    increment(state) {
+      state.count++
+    }
+  },
   getters: {
     // 単純にステートを返す
     count(state, getters, rootState, rootGetter) {
