@@ -1,28 +1,23 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+  <div class="app">
+    <h1>{{ message }}</h1>
+    <EditForm/>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld'
-
+import store from './store'
+// 子コンポーネントを読み込む
+import EditForm from './components/EditForm'
 export default {
-  name: 'App',
+  name: 'app',
   components: {
-    HelloWorld
+    EditForm
+  },
+  computed: {
+    // ローカルの message とストアの message を同期
+    message() {
+      return store.getters.message
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
